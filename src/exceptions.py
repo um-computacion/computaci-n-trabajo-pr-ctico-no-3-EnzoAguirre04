@@ -1,3 +1,5 @@
+# Trabajo Práctico 3: Desarrollo Guiado por Pruebas (TDD) - Manejo de Excepciones
+# Nombre y Apellido: Enzo Agustín Aguirre Polenta
 class NumeroDebeSerPositivo(Exception):
     """Excepción lanzada cuando se ingresa un número negativo."""
     pass
@@ -16,8 +18,10 @@ def ingrese_numero():
     entrada = input("Ingrese un número: ")
     try:
         numero = int(entrada)
-        if numero < 0:
-            raise NumeroDebeSerPositivo("El número debe ser positivo")
-        return numero
     except ValueError:
-        raise ValueError("La entrada debe ser un número válido") 
+        raise ValueError("La entrada debe ser un número válido")
+
+    if numero < 0:
+        raise NumeroDebeSerPositivo("El número debe ser positivo")
+
+    return numero
