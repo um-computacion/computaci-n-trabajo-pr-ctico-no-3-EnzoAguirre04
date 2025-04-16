@@ -13,5 +13,10 @@ class TestCalculoNumeros(unittest.TestCase):
         with self.assertRaises(NumeroDebeSerPositivo):
             ingrese_numero()
 
+    @patch('builtins.input', return_value='AAA')
+    def test_ingreso_no_numerico(self, mock_input):
+        with self.assertRaises(ValueError):
+            ingrese_numero()
+
 if __name__ == '__main__':
     unittest.main()
