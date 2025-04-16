@@ -1,3 +1,5 @@
+# Trabajo Práctico 3: Desarrollo Guiado por Pruebas (TDD) - Manejo de Excepciones.
+# Nombre y Apellido: Enzo Agustín Aguirre Polenta.
 from src.exceptions import NumeroDebeSerPositivo
 
 def ingrese_numero() -> int:
@@ -12,11 +14,21 @@ def ingrese_numero() -> int:
         NumeroDebeSerPositivo: Si el número ingresado es negativo.
     """
     entrada = input("Ingrese un número: ")
-    numero = int(entrada)  # No se maneja ValueError
+    try:
+        numero = int(entrada)
+    except ValueError:
+        raise ValueError("La entrada debe ser un número válido")
+
     if numero < 0:
         raise NumeroDebeSerPositivo("El número debe ser positivo")
+
     return numero
 
 if __name__ == '__main__':
-    numero = ingrese_numero()
-    print(f"Número válido: {numero}")
+    try:
+        numero = ingrese_numero()
+        print(f"Número válido: {numero}")
+    except NumeroDebeSerPositivo as e:
+        print(f"Error: {e}")
+    except ValueError as e:
+        print(f"Error: {e}")
