@@ -1,5 +1,5 @@
 # Trabajo Práctico 3: Desarrollo Guiado por Pruebas (TDD) - Manejo de Excepciones
-# ombre y Apellido: Enzo Agustín Aguirre Polenta
+# Nombre y Apellido: Enzo Agustín Aguirre Polenta
 class NumeroDebeSerPositivo(Exception):
     """Excepción lanzada cuando se ingresa un número negativo."""
     pass
